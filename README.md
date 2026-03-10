@@ -1,153 +1,81 @@
-[![Deploy](https://github.com/pawap90/phaser3-ts-vite-eslint/actions/workflows/deploy.yml/badge.svg)](https://github.com/pawap90/phaser3-ts-vite-eslint/actions/workflows/deploy.yml)
-[![Build](https://github.com/pawap90/phaser3-ts-vite-eslint/actions/workflows/build.yml/badge.svg)](https://github.com/pawap90/phaser3-ts-vite-eslint/actions/workflows/build.yml)
+# Juego con Phaser
 
-A modern Phaser 3 template: Phaser 3 + TypeScript + Vite + ESLint + GitHub Pages
+## Descripción
 
-[![Phaser Version 3.80.1](https://img.shields.io/badge/Phaser%20-%20v3.80.1%20-%20%23404951?labelColor=%2399388c&style=flat-square)](./package.json#L24)
-[![TypeScript Version 5.2.2](https://img.shields.io/badge/TypeScript%20-%20v5.2.2%20-%20%23404951?labelColor=%233178c6&style=flat-square)](./package.json#L21)
-[![Vite Version 5.3.4](https://img.shields.io/badge/Vite%20-%20v5.3.4%20-%20%23404951?labelColor=%23ffc820&style=flat-square)](./package.json#L20)
-[![ESLint Version 8.57.0](https://img.shields.io/badge/ESLint%20-%20v8.57.0%20-%20%23404951?labelColor=%234930bd&style=flat-square)](./package.json#L19)
-
-![A modern phaser 3 tempalte with typescript, vite, eslint, and GitHub pages](https://github.com/user-attachments/assets/3718c0b8-fad6-4dda-9ad1-54bfb496f128)
+En esta práctica se ha creado y modificado un pequeño juego utilizando **Phaser** junto con **Vite**.
+El objetivo de la actividad es aprender a configurar un proyecto de juego, hacer algunos cambios en sus elementos y finalmente publicarlo en internet usando GitHub o GitLab Pages.
 
 ---
 
-**Table of contents**
-- [Dependencies](#dependencies)
-- [Quick start](#quick-start)
-- [Project structure](#project-structure)
-- [TypeScript](#typescript)
-- [Vite](#vite)
-- [ESLint](#eslint)
-- [NPM Scripts](#npm-scripts)
-- [GitHub Pages](#github-pages)
+# 1. Configuración inicial
 
-# Dependencies
-- [Node.js](https://nodejs.org/en/)
-- [npm](https://www.npmjs.com/)
+Para empezar el proyecto se utilizó un **template base de Phaser** que ya incluía la estructura inicial del juego.
 
-# Quick start
+### Pasos que seguí
 
-1. Get this template: Press over the "Use this template" button. This will allow you to create a new repo with this project's structure on your Github account. Then you can clone it to your local machine.
+Primero descargué o cloné el repositorio del proyecto.
+Después abrí una terminal y entré en la carpeta del proyecto.
 
-    Alternatively, you can clone this repo to your machine using the following command.
+Una vez dentro instalé las dependencias necesarias con el comando:
 
-```sh
-git clone https://github.com/pawap90/phaser3-ts-vite-eslint.git
 ```
-
-2. Install dependencies: Run the following command from the project's root folder:
-
-```sh
 npm install
 ```
 
-3. Start the local development server: 
+Después inicié el servidor de desarrollo para poder ver el juego en el navegador:
 
-```sh
+```
 npm run dev
 ```
 
-Go to your browser and navigate to http://localhost:5173. You should see this beauty:
+Esto permite ejecutar el juego de forma local y comprobar que todo funciona mientras se realizan cambios.
 
-![Acho the pup bouncing around](https://i.imgur.com/bYVcrSr.gif)
+---
 
-# Project structure
+# 2. Modificación del juego
+
+Después de tener el proyecto funcionando, edité una de las escenas del juego para hacer algunos cambios.
+
+Entre las modificaciones que se pueden hacer están:
+
+* Cambiar o añadir **sprites o personajes**.
+* Modificar el **fondo del juego**, por ejemplo cambiando el color o añadiendo una imagen.
+* Ajustar la **interacción**, como los controles del jugador o acciones al hacer clic.
+
+Estos cambios sirven para entender mejor cómo funciona Phaser y cómo se pueden modificar los elementos de un juego.
+
+---
+
+# 3. Despliegue del proyecto
+
+Una vez terminado el juego, se configuró el repositorio para poder publicarlo en internet usando **GitHub Pages o GitLab Pages**.
+
+Para ello se creó un archivo **.yml** que permite automatizar el proceso de despliegue.
+
+Después se realizaron los siguientes pasos:
+
+* Hacer **commit** de los cambios.
+* Subir el código al repositorio con **push**.
+* Revisar en la sección **CI/CD** que el proceso se ejecuta correctamente.
+
+Cuando la build termina, el juego queda publicado y se puede acceder a él desde el navegador.
+
+---
+
+# 4. Enlace al juego
+
+Aquí se puede probar el juego publicado:
 
 ```
-├── /.github
-│   └── /workflows
-│           ├── build.yml
-│           └── deploy.yml
-├── /public
-│       ├── acho.png
-│       └── ground.png
-├── /src
-│   ├── /scenes
-│   │      ├── game.scene.ts
-│   │      └── preloader.scene.ts
-│   ├── main.ts
-│   └── vite-env.d.ts
-├── .gitignore
-├── eslint.config.js
-├── index.html
-├── package-lock.json
-├── package.json
-├── README.md
-├── tsconfig.json
-└── vite.config.ts
+https://sarayf1.github.io/Tarea-DPL-A30/
 ```
 
-> You can remove the assets within the `public` directory, but I recommend you first run the project once and make sure everything is installed and running properly.
+---
 
-# TypeScript
-You can find TypeScript's configuration in `tsconfig.json`. To keep the codebase safe, you'll notice the flag `strict` is set to true. This [enables all strict type checking options](https://www.typescriptlang.org/tsconfig/#strict), like `noImplicitAny` and `alwaysStrict`. Feel free to add your preferred configurations.
+# Tecnologías utilizadas
 
-# Vite
-Vite provides the development server and the production build. 
-Learn more about Vite [here](https://vitejs.dev/).
-
-To build your project for development and enjoy live updates, execute:
-
-```sh
-npm run dev
-```
-
-This will start the server in http://localhost:5173.
-
-
-To build your project for production:
-
-```sh
-npm run build
-```
-
-# ESLint
-ESLint keeps your codebase clean and consistent while also helping you prevent errors. 
-
-This project comes with a few custom rules already set up in the `eslint.config.js` file. Feel free to update them in your own project.
-
-Check for errors or styling issues using the following command:
-
-```sh
-npm run lint
-```
-
-This will print the list of problems found. 
-
-Some of the issues can be automatically fixed using:
-
-```sh
-npm run lint:fix
-```
-
-# NPM Scripts
-A brief description of the scripts you'll find in the `package.json`:
-- **dev**: Starts the local development server. Use it to test your project during development.
-- **prebuild**: Compiles the project and runs the linter. This script will be executed before `build`, and its goal is to find any errors before the production build is created.
-- **build**: Generates the production build in a `dist` folder located in the project's root.
-- **lint**: Runs the linter and prints any issues found
-- **lint:fix**: Runs the linter and executes automatic fixes. It'll also print any issues that couldn't be solved.
-
-# GitHub Pages
-This template includes a couple of GitHub Actions workflows:
-- `build.yml`: It builds the project, runs the linter and the TypeScript compiler to check for errors. Triggered manually or when a PR is opened targeting the `main` branch.
-- `deploy.yml`: This workflow is triggered when a push is made to the `main` branch. It deploys the production build to GitHub Pages.
-
-You can see this template's latest deploy to GitHub Pages here: [pawap90.github.io/phaser3-ts-vite-eslint](https://pawap90.github.io/phaser3-ts-vite-eslint/).
-
-To use the **GitHub Pages** in your own repo, follow these steps:
-
-1. In `vite.config.ts`, update the `base` property with your repo's name:
-
-```diff
-export default defineConfig({
--    base: '/phaser3-ts-vite-eslint/'
-+    base: '/your-repo-name/'
-});
-```
-
-2. Enable GitHub Pages in your repo's settings. To find this option, go to your repo's main page, click on the "Settings" tab, and click on "Pages" in the left sidebar.
-
-<!-- no toc -->
-## Happy coding! 
+* Phaser
+* Vite
+* JavaScript
+* Git
+* GitHub / GitLab
