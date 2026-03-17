@@ -3,8 +3,6 @@ import { Logger } from '../logger';
 import { Bugfender } from '@bugfender/sdk';
 
 export class LoginScene extends Scene {
-    private usernameInput!: Phaser.GameObjects.DOMElement;
-    private passwordInput!: Phaser.GameObjects.DOMElement;
 
     constructor() {
         super('login');
