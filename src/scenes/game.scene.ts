@@ -13,9 +13,9 @@ export class GameScene extends Scene {
 
         Logger.info('GameScene iniciada');
 
-        this.add.image(400, 570, 'fondo');
+        this.add.image(400, 570, 'fondo.png');
 
-        this.achoThePup = this.physics.add.image(0, 0, 'acho');
+        this.achoThePup = this.physics.add.image(0, 0, 'acho.png');
 
         this.achoThePup.setCollideWorldBounds(true);
         this.achoThePup.setBounce(1, 1);
