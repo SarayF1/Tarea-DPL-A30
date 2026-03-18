@@ -16,19 +16,17 @@ const config: Phaser.Types.Core.GameConfig = {
 
 Bugfender.init({ appKey: '4BaEnz2L9u572Ch0gRRzeNopAGwsPD1a' });
 
-// Log de inicio de aplicación
-Logger.info('Inicializando juego Phaser', { screen: 'main' });
-Bugfender.log('App iniciada');
+Logger.info('Inicializando juego Phaser');
 
 let game: Phaser.Game;
 
 try {
     game = new Phaser.Game(config);
     Logger.info('Juego creado correctamente');
-    Bugfender.log('Juego creado correctamente');
-} catch (error: unknown) {
+}
+catch (error: unknown) {
     Logger.error('Error iniciando el juego', error);
-    Bugfender.error('Crash: ' + error);
+    Bugfender.error('Crash: ' + String(error));
 }
 
 export default game!;

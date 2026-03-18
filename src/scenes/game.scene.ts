@@ -11,7 +11,6 @@ export class GameScene extends Scene {
 
     create(): void {
 
-        // LOG inicio escena
         Logger.info('GameScene iniciada');
 
         this.add.image(400, 570, 'fondo');
@@ -22,15 +21,15 @@ export class GameScene extends Scene {
         this.achoThePup.setBounce(1, 1);
         this.achoThePup.setVelocityX(300);
 
-        // INTERACCIÓN con el personaje
+        // INTERACCIÓN
         this.achoThePup.setInteractive();
         this.achoThePup.on('pointerdown', () => {
             Logger.interaction('Click en AchoThePup');
         });
 
-        // ---------------------------
-        // BOTÓN ERROR TIPO 1
-        // ---------------------------
+        // -----------------
+        // ERROR 1
+        // -----------------
         const errorBtn1 = this.add.text(650, 50, 'Error 1', {
             backgroundColor: '#ff0000',
             color: '#ffffff'
@@ -40,20 +39,18 @@ export class GameScene extends Scene {
 
         errorBtn1.on('pointerdown', () => {
             try {
-                Logger.interaction('Click en botón Error 1');
-
-                // Error manual
+                Logger.interaction('Click en Error 1');
                 throw new Error('Error de prueba tipo 1');
-
-            } catch (error) {
-                Logger.error('Error controlado tipo 1', error);
-                Bugfender.error('Error tipo 1: ' + error);
+            }
+            catch (error: unknown) {
+                Logger.error('Error tipo 1', error);
+                Bugfender.error('Error tipo 1: ' + String(error));
             }
         });
 
-        // ---------------------------
-        // BOTÓN ERROR TIPO 2
-        // ---------------------------
+        // -----------------
+        // ERROR 2
+        // -----------------
         const errorBtn2 = this.add.text(650, 120, 'Error 2', {
             backgroundColor: '#ff9900',
             color: '#000000'
@@ -63,15 +60,15 @@ export class GameScene extends Scene {
 
         errorBtn2.on('pointerdown', () => {
             try {
-                Logger.interaction('Click en botón Error 2');
+                Logger.interaction('Click en Error 2');
 
-                // Error forzado (undefined)
-                const obj: any = null;
-                console.log(obj.prop); // rompe
+                const obj = null as unknown as { prop: string };
+                obj.prop; // fuerza error
 
-            } catch (error) {
-                Logger.error('Error controlado tipo 2', error);
-                Bugfender.error('Error tipo 2: ' + error);
+            }
+            catch (error: unknown) {
+                Logger.error('Error tipo 2', error);
+                Bugfender.error('Error tipo 2: ' + String(error));
             }
         });
     }

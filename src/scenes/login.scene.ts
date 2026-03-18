@@ -25,7 +25,7 @@ export class LoginScene extends Scene {
         if (loginBtn) {
             loginBtn.addEventListener('click', () => {
                 try {
-                    Logger.interaction('Click en botón login');
+                    Logger.interaction('Click en login');
 
                     const username = (document.getElementById('username') as HTMLInputElement).value;
                     const password = (document.getElementById('password') as HTMLInputElement).value;
@@ -38,10 +38,10 @@ export class LoginScene extends Scene {
 
                     Logger.info('Login exitoso', { username });
                     this.scene.start('game');
-
-                } catch (error: unknown) {
+                }
+                catch (error: unknown) {
                     Logger.error('Error en login', error);
-                    Bugfender.error('Error en login: ' + error);
+                    Bugfender.error('Error en login: ' + String(error));
                 }
             });
         }
