@@ -9,41 +9,51 @@ export class LoginScene extends Scene {
     }
 
     create(): void {
+
+        // 🎨 Cambiar color de fondo (azul oscuro más bonito)
+        this.cameras.main.setBackgroundColor('#1e293b');
+
         Logger.info('LoginScene creada');
 
-        this.add.text(400, 100, 'Login', { fontSize: '48px', color: '#ffffff' }).setOrigin(0.5);
+        // Título
+        this.add.text(400, 150, 'Bienvenido', {
+            fontSize: '48px',
+            color: '#ffffff'
+        }).setOrigin(0.5);
 
-        const html = `
-            <input type="text" id="username" placeholder="Usuario" style="font-size: 24px; margin: 5px;">
-            <input type="password" id="password" placeholder="Contraseña" style="font-size: 24px; margin: 5px;">
-            <button id="loginBtn" style="font-size: 24px; margin: 5px;">Login</button>
-        `;
-        this.add.dom(400, 250).createFromHTML(html);
+        // -------------------
+        // BOTÓN INICIAR JUEGO
+        // -------------------
+        const startBtn = this.add.text(400, 300, 'INICIAR JUEGO', {
+            fontSize: '32px',
+            color: '#ffffff',
+            backgroundColor: '#22c55e' // verde bonito
+        })
+            .setPadding(15)
+            .setOrigin(0.5)
+            .setInteractive();
 
-        const loginBtn = document.getElementById('loginBtn');
+        // Hover efecto (opcional pero queda pro)
+        startBtn.on('pointerover', () => {
+            startBtn.setStyle({ backgroundColor: '#16a34a' });
+        });
 
-        if (loginBtn) {
-            loginBtn.addEventListener('click', () => {
-                try {
-                    Logger.interaction('Click en login');
+        startBtn.on('pointerout', () => {
+            startBtn.setStyle({ backgroundColor: '#22c55e' });
+        });
 
-                    const username = (document.getElementById('username') as HTMLInputElement).value;
-                    const password = (document.getElementById('password') as HTMLInputElement).value;
+        // Click
+        startBtn.on('pointerdown', () => {
+            try {
+                Logger.interaction('Click en iniciar juego');
+                Bugfender.log('Usuario inicia el juego');
 
-                    if (!username || !password) {
-                        Logger.error('Login fallido: campos vacíos');
-                        Bugfender.error('Login fallido: campos vacíos');
-                        return;
-                    }
-
-                    Logger.info('Login exitoso', { username });
-                    this.scene.start('game');
-                }
-                catch (error: unknown) {
-                    Logger.error('Error en login', error);
-                    Bugfender.error('Error en login: ' + String(error));
-                }
-            });
-        }
+                this.scene.start('game');
+            }
+            catch (error: unknown) {
+                Logger.error('Error al iniciar juego', error);
+                Bugfender.error('Error iniciar juego: ' + String(error));
+            }
+        });
     }
 }
