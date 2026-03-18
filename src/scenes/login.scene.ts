@@ -10,45 +10,41 @@ export class LoginScene extends Scene {
 
     create(): void {
 
-        // 🎨 Cambiar color de fondo (azul oscuro más bonito)
-        this.cameras.main.setBackgroundColor('#1e293b');
+        // Fondo nuevo (azul claro)
+        this.cameras.main.setBackgroundColor('#0ea5e9');
 
         Logger.info('LoginScene creada');
 
         // Título
         this.add.text(400, 150, 'Bienvenido', {
             fontSize: '48px',
-            color: '#ffffff'
+            color: '#0f172a' // oscuro para contraste
         }).setOrigin(0.5);
 
-        // -------------------
-        // BOTÓN INICIAR JUEGO
-        // -------------------
+        // BOTÓN
         const startBtn = this.add.text(400, 300, 'INICIAR JUEGO', {
             fontSize: '32px',
             color: '#ffffff',
-            backgroundColor: '#22c55e' // verde bonito
+            backgroundColor: '#16a34a'
         })
             .setPadding(15)
             .setOrigin(0.5)
             .setInteractive();
 
-        // Hover efecto (opcional pero queda pro)
         startBtn.on('pointerover', () => {
-            startBtn.setStyle({ backgroundColor: '#16a34a' });
+            startBtn.setStyle({ backgroundColor: '#15803d' });
         });
 
         startBtn.on('pointerout', () => {
-            startBtn.setStyle({ backgroundColor: '#22c55e' });
+            startBtn.setStyle({ backgroundColor: '#16a34a' });
         });
 
-        // Click
         startBtn.on('pointerdown', () => {
             try {
                 Logger.interaction('Click en iniciar juego');
                 Bugfender.log('Usuario inicia el juego');
 
-                this.scene.start('game');
+                this.scene.start('preloader');
             }
             catch (error: unknown) {
                 Logger.error('Error al iniciar juego', error);

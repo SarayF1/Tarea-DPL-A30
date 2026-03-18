@@ -14,10 +14,10 @@ export class GameScene extends Scene {
         Logger.info('GameScene iniciada');
 
         // FONDO (centrado correctamente)
-        this.add.image(400, 300, 'fondo');
+        this.add.image(400, 300, 'fondo.png');
 
         // PERSONAJE
-        this.achoThePup = this.physics.add.image(400, 100, 'acho');
+        this.achoThePup = this.physics.add.image(400, 100, 'acho.png');
 
         this.achoThePup.setCollideWorldBounds(true);
         this.achoThePup.setBounce(1, 1);
