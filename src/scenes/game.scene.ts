@@ -13,22 +13,24 @@ export class GameScene extends Scene {
 
         Logger.info('GameScene iniciada');
 
-        this.add.image(400, 570, 'fondo.png');
+        // FONDO (centrado correctamente)
+        this.add.image(400, 300, 'fondo');
 
-        this.achoThePup = this.physics.add.image(0, 0, 'acho.png');
+        // PERSONAJE
+        this.achoThePup = this.physics.add.image(400, 100, 'acho');
 
         this.achoThePup.setCollideWorldBounds(true);
         this.achoThePup.setBounce(1, 1);
-        this.achoThePup.setVelocityX(300);
+        this.achoThePup.setVelocity(200, 200);
 
         // INTERACCIÓN
         this.achoThePup.setInteractive();
         this.achoThePup.on('pointerdown', () => {
-            Logger.interaction('Click en AchoThePup');
+            Logger.interaction('Click en Acho');
         });
 
         // -----------------
-        // ERROR 1
+        // BOTÓN ERROR 1
         // -----------------
         const errorBtn1 = this.add.text(650, 50, 'Error 1', {
             backgroundColor: '#ff0000',
@@ -49,7 +51,7 @@ export class GameScene extends Scene {
         });
 
         // -----------------
-        // ERROR 2
+        // BOTÓN ERROR 2
         // -----------------
         const errorBtn2 = this.add.text(650, 120, 'Error 2', {
             backgroundColor: '#ff9900',
